@@ -1,5 +1,5 @@
 [package]
-name = "cosmic-osd"
+name = "wmde-osd"
 version = "0.1.0"
 edition = "2024"
 rust-version = "1.93"
@@ -52,11 +52,38 @@ git = "https://github.com/pop-os/cosmic-settings"
 [dependencies.cosmic-settings-daemon-subscription]
 git = "https://github.com/pop-os/cosmic-settings"
 
-#[patch.'https://github.com/pop-os/libcosmic']
-#libcosmic = { path = "../../pop/libcosmic" }
-#cosmic-config = { path = "../../pop/libcosmic/cosmic-config" }
-#cosmic-theme = { path = "../../pop/libcosmic/cosmic-theme" }
-#iced_futures = { path = "../../pop/libcosmic/iced/futures" }
+# WMDE forks (local sibling paths). libcosmic carries the wmde config-root +
+# fun.wmde.* theme/toolkit ids; the sibling forks carry the renamed cross-component
+# config ids consumed here (audio varlink client, comp config, settings subscriptions).
+[patch."https://github.com/pop-os/libcosmic"]
+libcosmic = { path = "../libcosmic" }
+cosmic-config = { path = "../libcosmic/cosmic-config" }
+cosmic-config-derive = { path = "../libcosmic/cosmic-config-derive" }
+cosmic-theme = { path = "../libcosmic/cosmic-theme" }
+iced = { path = "../libcosmic/iced" }
+iced_accessibility = { path = "../libcosmic/iced/accessibility" }
+iced_core = { path = "../libcosmic/iced/core" }
+iced_debug = { path = "../libcosmic/iced/debug" }
+iced_futures = { path = "../libcosmic/iced/futures" }
+iced_graphics = { path = "../libcosmic/iced/graphics" }
+iced_program = { path = "../libcosmic/iced/program" }
+iced_renderer = { path = "../libcosmic/iced/renderer" }
+iced_runtime = { path = "../libcosmic/iced/runtime" }
+iced_tiny_skia = { path = "../libcosmic/iced/tiny_skia" }
+iced_wgpu = { path = "../libcosmic/iced/wgpu" }
+iced_widget = { path = "../libcosmic/iced/widget" }
+iced_winit = { path = "../libcosmic/iced/winit" }
+
+[patch."https://github.com/pop-os/cosmic-comp"]
+cosmic-comp-config = { path = "../wmde-comp/cosmic-comp-config" }
+
+[patch."https://github.com/pop-os/cosmic-settings-daemon"]
+cosmic-settings-audio-client = { path = "../wmde-settings-daemon/audio-client" }
+
+[patch."https://github.com/pop-os/cosmic-settings"]
+cosmic-settings-airplane-mode-subscription = { path = "../wmde-settings/subscriptions/airplane-mode" }
+cosmic-settings-upower-subscription = { path = "../wmde-settings/subscriptions/upower" }
+cosmic-settings-daemon-subscription = { path = "../wmde-settings/subscriptions/settings-daemon" }
 
 [profile.release]
 lto = "thin"

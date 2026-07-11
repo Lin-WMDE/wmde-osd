@@ -1,4 +1,4 @@
-name := 'cosmic-osd'
+name := 'wmde-osd'
 rootdir := ''
 prefix := '/usr'
 polkit-agent-helper-1 := '/usr/libexec/polkit-agent-helper-1'

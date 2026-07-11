@@ -1005,7 +1005,6 @@ dependencies = [
 [[package]]
 name = "cosmic-comp-config"
 version = "1.0.0"
-source = "git+https://github.com/pop-os/cosmic-comp#8f5f7c897deaf0fac947ed1295692a35f318c8e6"
 dependencies = [
  "cosmic-config",
  "input",
@@ -1015,7 +1014,6 @@ dependencies = [
 [[package]]
 name = "cosmic-config"
 version = "1.0.0"
-source = "git+https://github.com/pop-os/libcosmic#a991d7bb433f67016c1473e8e4a03691ededd75a"
 dependencies = [
  "atomicwrites",
  "cosmic-config-derive",
@@ -1036,7 +1034,6 @@ dependencies = [
 [[package]]
 name = "cosmic-config-derive"
 version = "1.0.0"
-source = "git+https://github.com/pop-os/libcosmic#a991d7bb433f67016c1473e8e4a03691ededd75a"
 dependencies = [
  "quote",
  "syn",
@@ -1054,36 +1051,6 @@ dependencies = [
  "thiserror 2.0.18",
  "tracing",
  "xdg",
-]
-
-[[package]]
-name = "cosmic-osd"
-version = "0.1.0"
-dependencies = [
- "clap",
- "cosmic-comp-config",
- "cosmic-config",
- "cosmic-randr-shell",
- "cosmic-settings-airplane-mode-subscription",
- "cosmic-settings-audio-client",
- "cosmic-settings-daemon-subscription",
- "cosmic-settings-upower-subscription",
- "env_logger",
- "futures",
- "i18n-embed",
- "i18n-embed-fl",
- "kdl",
- "libcosmic",
- "log",
- "logind-zbus",
- "rust-embed",
- "serde",
- "serde_json",
- "tokio",
- "tokio-stream",
- "uzers",
- "xdg",
- "zbus",
 ]
 
 [[package]]
@@ -1113,7 +1080,6 @@ dependencies = [
 [[package]]
 name = "cosmic-settings-airplane-mode-subscription"
 version = "1.0.7"
-source = "git+https://github.com/pop-os/cosmic-settings#3a77442dbc1dee16d9df99aa6fbb4afa42bc58dc"
 dependencies = [
  "futures",
  "iced_futures",
@@ -1125,7 +1091,6 @@ dependencies = [
 [[package]]
 name = "cosmic-settings-audio-client"
 version = "1.0.0"
-source = "git+https://github.com/pop-os/cosmic-settings-daemon#e7936f0d4f01c8c5a436908c7ee9f6ad43e6a7d8"
 dependencies = [
  "cosmic-settings-audio-core",
  "dirs",
@@ -1141,7 +1106,6 @@ dependencies = [
 [[package]]
 name = "cosmic-settings-audio-core"
 version = "1.0.0"
-source = "git+https://github.com/pop-os/cosmic-settings-daemon#e7936f0d4f01c8c5a436908c7ee9f6ad43e6a7d8"
 dependencies = [
  "dirs",
  "ron 0.12.1",
@@ -1173,7 +1137,6 @@ dependencies = [
 [[package]]
 name = "cosmic-settings-daemon-subscription"
 version = "1.0.7"
-source = "git+https://github.com/pop-os/cosmic-settings#3a77442dbc1dee16d9df99aa6fbb4afa42bc58dc"
 dependencies = [
  "futures",
  "iced_futures",
@@ -1186,7 +1149,6 @@ dependencies = [
 [[package]]
 name = "cosmic-settings-upower-subscription"
 version = "1.0.7"
-source = "git+https://github.com/pop-os/cosmic-settings#3a77442dbc1dee16d9df99aa6fbb4afa42bc58dc"
 dependencies = [
  "futures",
  "iced_futures",
@@ -1224,7 +1186,6 @@ dependencies = [
 [[package]]
 name = "cosmic-theme"
 version = "1.0.0"
-source = "git+https://github.com/pop-os/libcosmic#a991d7bb433f67016c1473e8e4a03691ededd75a"
 dependencies = [
  "almost",
  "configparser",
@@ -2372,7 +2333,6 @@ dependencies = [
 [[package]]
 name = "iced"
 version = "0.14.0"
-source = "git+https://github.com/pop-os/libcosmic#a991d7bb433f67016c1473e8e4a03691ededd75a"
 dependencies = [
  "dnd",
  "iced_accessibility",
@@ -2393,7 +2353,6 @@ dependencies = [
 [[package]]
 name = "iced_accessibility"
 version = "0.1.0"
-source = "git+https://github.com/pop-os/libcosmic#a991d7bb433f67016c1473e8e4a03691ededd75a"
 dependencies = [
  "accesskit",
  "accesskit_winit",
@@ -2402,7 +2361,6 @@ dependencies = [
 [[package]]
 name = "iced_core"
 version = "0.14.0"
-source = "git+https://github.com/pop-os/libcosmic#a991d7bb433f67016c1473e8e4a03691ededd75a"
 dependencies = [
  "bitflags 2.13.0",
  "bytes",
@@ -2427,7 +2385,6 @@ dependencies = [
 [[package]]
 name = "iced_debug"
 version = "0.14.0"
-source = "git+https://github.com/pop-os/libcosmic#a991d7bb433f67016c1473e8e4a03691ededd75a"
 dependencies = [
  "iced_core",
  "iced_futures",
@@ -2437,7 +2394,6 @@ dependencies = [
 [[package]]
 name = "iced_futures"
 version = "0.14.0"
-source = "git+https://github.com/pop-os/libcosmic#a991d7bb433f67016c1473e8e4a03691ededd75a"
 dependencies = [
  "futures",
  "iced_core",
@@ -2451,7 +2407,6 @@ dependencies = [
 [[package]]
 name = "iced_graphics"
 version = "0.14.0"
-source = "git+https://github.com/pop-os/libcosmic#a991d7bb433f67016c1473e8e4a03691ededd75a"
 dependencies = [
  "bitflags 2.13.0",
  "bytemuck",
@@ -2472,7 +2427,6 @@ dependencies = [
 [[package]]
 name = "iced_program"
 version = "0.14.0"
-source = "git+https://github.com/pop-os/libcosmic#a991d7bb433f67016c1473e8e4a03691ededd75a"
 dependencies = [
  "iced_graphics",
  "iced_runtime",
@@ -2481,7 +2435,6 @@ dependencies = [
 [[package]]
 name = "iced_renderer"
 version = "0.14.0"
-source = "git+https://github.com/pop-os/libcosmic#a991d7bb433f67016c1473e8e4a03691ededd75a"
 dependencies = [
  "iced_graphics",
  "iced_tiny_skia",
@@ -2493,7 +2446,6 @@ dependencies = [
 [[package]]
 name = "iced_runtime"
 version = "0.14.0"
-source = "git+https://github.com/pop-os/libcosmic#a991d7bb433f67016c1473e8e4a03691ededd75a"
 dependencies = [
  "bytes",
  "cosmic-client-toolkit",
@@ -2508,7 +2460,6 @@ dependencies = [
 [[package]]
 name = "iced_tiny_skia"
 version = "0.14.0"
-source = "git+https://github.com/pop-os/libcosmic#a991d7bb433f67016c1473e8e4a03691ededd75a"
 dependencies = [
  "bytemuck",
  "cosmic-text",
@@ -2525,7 +2476,6 @@ dependencies = [
 [[package]]
 name = "iced_wgpu"
 version = "0.14.0"
-source = "git+https://github.com/pop-os/libcosmic#a991d7bb433f67016c1473e8e4a03691ededd75a"
 dependencies = [
  "as-raw-xcb-connection",
  "bitflags 2.13.0",
@@ -2556,7 +2506,6 @@ dependencies = [
 [[package]]
 name = "iced_widget"
 version = "0.14.2"
-source = "git+https://github.com/pop-os/libcosmic#a991d7bb433f67016c1473e8e4a03691ededd75a"
 dependencies = [
  "cosmic-client-toolkit",
  "dnd",
@@ -2574,7 +2523,6 @@ dependencies = [
 [[package]]
 name = "iced_winit"
 version = "0.14.0"
-source = "git+https://github.com/pop-os/libcosmic#a991d7bb433f67016c1473e8e4a03691ededd75a"
 dependencies = [
  "cosmic-client-toolkit",
  "cursor-icon",
@@ -3100,7 +3048,6 @@ checksum = "68ab91017fe16c622486840e4c83c9a37afeff978bd239b5293d61ece587de66"
 [[package]]
 name = "libcosmic"
 version = "1.0.0"
-source = "git+https://github.com/pop-os/libcosmic#a991d7bb433f67016c1473e8e4a03691ededd75a"
 dependencies = [
  "apply",
  "ashpd 0.12.3",
@@ -6980,6 +6927,36 @@ dependencies = [
  "serde_json",
  "unicode-xid",
  "wasmparser",
+]
+
+[[package]]
+name = "wmde-osd"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "cosmic-comp-config",
+ "cosmic-config",
+ "cosmic-randr-shell",
+ "cosmic-settings-airplane-mode-subscription",
+ "cosmic-settings-audio-client",
+ "cosmic-settings-daemon-subscription",
+ "cosmic-settings-upower-subscription",
+ "env_logger",
+ "futures",
+ "i18n-embed",
+ "i18n-embed-fl",
+ "kdl",
+ "libcosmic",
+ "log",
+ "logind-zbus",
+ "rust-embed",
+ "serde",
+ "serde_json",
+ "tokio",
+ "tokio-stream",
+ "uzers",
+ "xdg",
+ "zbus",
 ]
 
 [[package]]

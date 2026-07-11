@@ -356,7 +356,7 @@ impl cosmic::Application for App {
     type Message = Msg;
     type Executor = iced::executor::Default;
     type Flags = Args;
-    const APP_ID: &'static str = "com.system76.CosmicOnScreenDisplay";
+    const APP_ID: &'static str = "fun.wmde.OnScreenDisplay";
 
     fn init(core: cosmic::app::Core, _flags: Args) -> (Self, cosmic::app::Task<Msg>) {
         (
@@ -652,7 +652,7 @@ impl cosmic::Application for App {
                     envs.push(("DESKTOP_STARTUP_ID".to_string(), token));
                 }
                 Task::perform(
-                    cosmic::desktop::spawn_desktop_exec("cosmic-settings sound", envs, None, false),
+                    cosmic::desktop::spawn_desktop_exec("wmde-settings sound", envs, None, false),
                     |()| cosmic::action::app(Msg::Cancel),
                 )
             }
@@ -1231,7 +1231,7 @@ impl cosmic::Application for App {
                         std::thread::spawn({
                             move || {
                                 if let Ok(helper) =
-                                    cosmic_config::Config::new("com.system76.CosmicComp", 1)
+                                    cosmic_config::Config::new("fun.wmde.Comp", 1)
                                 {
                                     let mut enabled = helper
                                         .get::<TouchpadOverride>("input_touchpad_override")
