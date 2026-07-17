@@ -18,20 +18,9 @@ build-debug *args:
 # Compiles with release profile
 build-release *args: (build-debug '--release' args)
 
-# Compiles with vendored dependencies
-build-vendored *args: vendor-extract (build-release '--frozen --offline' args)
-
-# Build a debian package locally without a schroot or vendoring
-build-deb:
-    dpkg-buildpackage -d -nc
-
 # Runs `cargo clean`
 clean:
     cargo clean
-
-# `cargo clean` and removes vendored dependencies
-clean-dist: clean
-    rm -rf .cargo vendor vendor.tar
 
 # Runs a clippy check
 check *args:
@@ -43,18 +32,3 @@ check-json: (check '--message-format=json')
 # Installs files
 install:
     install -Dm0755 {{ cargo-target-dir / 'release' / name }} {{bin-dst}}
-
-# Vendor Cargo dependencies locally
-vendor:
-    mkdir -p .cargo
-    cargo vendor --locked | head -n -1 > .cargo/config.toml
-    echo 'directory = "vendor"' >> .cargo/config.toml
-    tar pcf vendor.tar vendor
-    rm -rf vendor
-
-# Extracts vendored dependencies
-[private]
-vendor-extract:
-    #!/usr/bin/env sh
-    rm -rf vendor
-    tar pxf vendor.tar

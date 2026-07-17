@@ -1,6 +1,6 @@
 # Testing
 
-This document provides a regression testing checklist for the COSMIC OSD component. The checklist provides a starting point for Quality Assurance reviews.
+This document provides a regression testing checklist for the WMDE OSD component. The checklist provides a starting point for Quality Assurance reviews.
 
 ## Checklist
 

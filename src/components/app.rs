@@ -661,7 +661,7 @@ impl cosmic::Application for App {
                     request_token(Some(String::from(Self::APP_ID)), Some(id))
                         .map(move |token| cosmic::Action::App(Msg::ActivationToken(token)))
                 } else {
-                    log::error!("Failed ot spawn cosmic-settings.");
+                    log::error!("Failed to spawn wmde-settings.");
                     Task::none()
                 }
             }
@@ -1249,7 +1249,7 @@ impl cosmic::Application for App {
                                     }
                                     let _ = tx.send(enabled);
                                 } else {
-                                    log::error!("Failed to load CosmicComp config for touchpad");
+                                    log::error!("Failed to load fun.wmde.Comp config for touchpad");
                                 }
                             }
                         });
