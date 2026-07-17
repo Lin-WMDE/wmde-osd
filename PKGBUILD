@@ -15,7 +15,7 @@ license=('GPL-3.0-or-later')
 # runtime: wayland client (libcosmic winit/wayland), polkit agent helper at
 # /usr/libexec/polkit-agent-helper-1, and cosmic-randr for display identify.
 # Verify with namcap after first build.
-depends=('glibc' 'gcc-libs' 'wayland' 'polkit')
+depends=('glibc' 'gcc-libs' 'wayland' 'polkit' 'wmde-randr')
 optdepends=('wmde-settings: Sound Settings shortcut from the volume OSD')
 makedepends=('rust' 'cargo' 'just' 'git' 'wayland' 'clang' 'lld' 'pkgconf' 'polkit')
 source=("$pkgname::git+https://github.com/Lin-WMDE/wmde-osd.git#branch=wmde")

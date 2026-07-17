@@ -1070,7 +1070,6 @@ dependencies = [
 [[package]]
 name = "cosmic-randr-shell"
 version = "0.1.0"
-source = "git+https://github.com/pop-os/cosmic-randr#6e8e795970fa06d434af22775e415b517f7552d3"
 dependencies = [
  "kdl",
  "slotmap",
@@ -7460,3 +7459,7 @@ dependencies = [
  "syn",
  "winnow 1.0.3",
 ]
+
+[[patch.unused]]
+name = "cosmic-randr"
+version = "0.1.0"

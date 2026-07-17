@@ -1352,7 +1352,7 @@ impl cosmic::Application for App {
                             }
                         }
 
-                        let mut task = tokio::process::Command::new("cosmic-randr");
+                        let mut task = tokio::process::Command::new("wmde-randr");
                         task.arg("kdl");
 
                         task.stdin(Stdio::piped());

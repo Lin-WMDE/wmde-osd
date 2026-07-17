@@ -89,3 +89,15 @@ cosmic-settings-daemon-subscription = { path = "../wmde-settings/subscriptions/s
 lto = "thin"
 opt-level = 3
 panic = "abort"
+
+# WMDE: redirect the last upstream pop-os/cosmic-randr git dep to the local wmde-randr
+# fork (crate names kept - only the CLI binary is renamed). Both URL forms because the
+# consumers declare the dep with and without a trailing slash; the shell crate pulls the
+# lib crate transitively from the same git source, so both are patched.
+[patch."https://github.com/pop-os/cosmic-randr"]
+cosmic-randr = { path = "../wmde-randr/lib" }
+cosmic-randr-shell = { path = "../wmde-randr/shell" }
+
+[patch."https://github.com/pop-os/cosmic-randr/"]
+cosmic-randr = { path = "../wmde-randr/lib" }
+cosmic-randr-shell = { path = "../wmde-randr/shell" }
