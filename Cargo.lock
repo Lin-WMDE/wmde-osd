@@ -7458,7 +7458,3 @@ dependencies = [
  "syn",
  "winnow 1.0.3",
 ]
-
-[[patch.unused]]
-name = "cosmic-randr"
-version = "0.1.0"

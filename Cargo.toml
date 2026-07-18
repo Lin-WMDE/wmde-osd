@@ -95,11 +95,9 @@ panic = "abort"
 # consumers declare the dep with and without a trailing slash; the shell crate pulls the
 # lib crate transitively from the same git source, so both are patched.
 [patch."https://github.com/pop-os/cosmic-randr"]
-cosmic-randr = { path = "../wmde-randr/lib" }
 cosmic-randr-shell = { path = "../wmde-randr/shell" }
 
 [patch."https://github.com/pop-os/cosmic-randr/"]
-cosmic-randr = { path = "../wmde-randr/lib" }
 cosmic-randr-shell = { path = "../wmde-randr/shell" }
 
 # WMDE: redirect standard D-Bus binding crates to the local wmde-dbus-settings-bindings
