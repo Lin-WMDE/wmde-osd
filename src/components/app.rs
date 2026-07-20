@@ -458,11 +458,11 @@ impl App {
 
     fn trigger_identify_displays(&self) -> cosmic::app::Task<Msg> {
         cosmic::task::future(async move {
-            // Add a small delay to allow cosmic-randr to sync with display changes
+            // Add a small delay to allow wmde-randr to sync with display changes
             tokio::time::sleep(tokio::time::Duration::from_millis(100)).await;
 
             let Ok(output_lists) = cosmic_randr_shell::list().await else {
-                log::error!("Failed to list displays with cosmic-randr");
+                log::error!("Failed to list displays with wmde-randr");
                 return Msg::CreateDisplayIdentifiers(Vec::new());
             };
 
@@ -1423,7 +1423,7 @@ impl cosmic::Application for App {
                         let enabled;
 
                         let Ok(mut output_lists) = cosmic_randr_shell::list().await else {
-                            log::error!("Failed to list displays with cosmic-randr");
+                            log::error!("Failed to list displays with wmde-randr");
                             return Msg::Display(None);
                         };
 
