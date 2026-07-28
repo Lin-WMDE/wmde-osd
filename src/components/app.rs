@@ -146,7 +146,7 @@ async fn log_out() -> zbus::Result<()> {
             let manager_proxy = SessionManagerProxy::new(&connection).await?;
             manager_proxy.logout(0).await?;
         }
-        // By default assume COSMIC
+        // By default assume WMDE
         _ => {
             let cosmic_session = CosmicSessionProxy::new(&connection).await?;
             cosmic_session.exit().await?;
