@@ -1251,20 +1251,16 @@ impl cosmic::Application for App {
 
         subscriptions.push(kbd_backlight_subscription("kbd-backlight").map(Msg::KeyboardBacklight));
 
-        subscriptions.push(
-            self.core
-                .watch_config("com.system76.CosmicComp")
-                .map(|update| {
-                    if !update.errors.is_empty() {
-                        log::error!(
-                            "errors loading config {:?}: {:?}",
-                            update.keys,
-                            update.errors
-                        );
-                    }
-                    Msg::CompConfig(Box::new(update.config))
-                }),
-        );
+        subscriptions.push(self.core.watch_config("fun.wmde.Comp").map(|update| {
+            if !update.errors.is_empty() {
+                log::error!(
+                    "errors loading config {:?}: {:?}",
+                    update.keys,
+                    update.errors
+                );
+            }
+            Msg::CompConfig(Box::new(update.config))
+        }));
 
         if let Some(connection) = self.wayland_connection.clone() {
             subscriptions.push(keyboard_layout::subscription(connection).map(Msg::KeyboardLayout));
