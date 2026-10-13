@@ -1,0 +1,78 @@
+# Один конфиг nFPM на оба формата. Стейджинг готовит `just package-staging`,
+# версию всегда подставляет just через env WMDE_VERSION (см. justfile).
+# ВАЖНО: только ${WMDE_VERSION} без :-дефолта — nFPM раскрывает env через
+# os.ExpandEnv и :- не понимает (версия молча станет 0.0.0~rc0).
+name: wmde-osd
+arch: amd64
+version: ${WMDE_VERSION}
+release: 1
+maintainer: WMDE <wmde@wmde.fun>
+description: |-
+  WMDE on-screen display and polkit agent (fork of cosmic-osd)
+  Volume/brightness/power indicators under the fun.wmde.Osd name.
+homepage: https://wmde.fun
+license: GPL-3.0-or-later
+section: x11
+
+# Как в PKGBUILD: wayland-клиент + polkit-агент + вызов wmde-randr.
+# wmde-randr — в recommends, а не depends: без него запускается всё,
+# кроме идентификации дисплеев; зато пакет ставится отдельно, пока
+# все пакеты WMDE не лежат в одном репозитории (apt/dnf ставят
+# Recommends по умолчанию, так что в сборе всё равно приедет).
+depends:
+  - libc6 | glibc
+  - libgcc-s1 | libgcc
+  - libxkbcommon0
+  - libwayland-client0
+  - policykit-1 | polkit
+
+recommends:
+  - wmde-randr
+
+contents:
+  - src: target/staging/usr/bin/wmde-osd
+    dst: /usr/bin/wmde-osd
+    file_info: { mode: 0755 }
+  # doc (copyright + changelog.Debian.gz) готовит just package-doc.
+  # Только для deb: в rpm нет %doc-разметки у nFPM,
+  # а лицензия и changelog там и так есть (License-тег + %changelog).
+  - src: target/staging/usr/share/doc/wmde-osd/
+    dst: /usr/share/doc/wmde-osd/
+    type: tree
+    packager: deb
+
+# %changelog для rpm генерит just package-staging (иначе E: no-changelogname-tag).
+# Путь от корня репо: nFPM резолвит его от cwd, а не от каталога конфига.
+changelog: target/changelog.yaml
+
+overrides:
+  deb:
+    # polkitd, а не policykit-1: в Debian 13 пакет переименован (E lintian),
+    # в Ubuntu 24.04 polkitd тоже есть. udev/input нужны только сборке
+    # (линковщик их отбрасывает через --as-needed, в ldd их нет).
+    depends:
+      - libc6
+      - libgcc-s1
+      - libxkbcommon0
+      - libwayland-client0
+      - polkitd
+      - libfontconfig1
+      - libfreetype6
+      - libexpat1
+    recommends:
+      - wmde-randr
+  rpm:
+    # SONAME вместо имён пакетов: имена расходятся между
+    # Fedora и openSUSE, а SONAME предоставляют обе семьи.
+    # polkit — по имени: нужен сам пакет с helper-бинарником.
+    depends:
+      - libc.so.6()(64bit)
+      - libgcc_s.so.1()(64bit)
+      - libxkbcommon.so.0()(64bit)
+      - libwayland-client.so.0()(64bit)
+      - polkit
+      - libfontconfig.so.1()(64bit)
+      - libfreetype.so.6()(64bit)
+      - libexpat.so.1()(64bit)
+    recommends:
+      - wmde-randr
