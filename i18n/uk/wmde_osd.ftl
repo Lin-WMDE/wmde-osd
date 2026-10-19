@@ -1,5 +1,5 @@
 invalid-password = Неправильний пароль. Повторіть спробу.
-authentication-required = Автентифікація обов'язкова
+authentication-required = Автентифікація обовʼязкова
 cancel = Скасувати
 authenticate = Автентифікувати
 enter-bios = Увійти в BIOS

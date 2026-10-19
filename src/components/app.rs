@@ -530,6 +530,7 @@ impl App {
             .split_terminator(',')
             .chain(std::iter::repeat(""));
 
+        // WMDE: descriptions go through the xkeyboard-config catalog, see `layout_description`.
         'outer: for (layout, variant) in layouts.zip(variants) {
             for xkb_layout in &self.layouts {
                 if layout != xkb_layout.name() {
@@ -538,7 +539,7 @@ impl App {
 
                 if variant.is_empty() {
                     let active_layout = ActiveLayout {
-                        description: xkb_layout.description().to_owned(),
+                        description: crate::layout_description(xkb_layout.description()),
                         layout: layout.to_owned(),
                         variant: variant.to_owned(),
                     };
@@ -557,7 +558,7 @@ impl App {
                     }
 
                     let active_layout = ActiveLayout {
-                        description: xkb_variant.description().to_owned(),
+                        description: crate::layout_description(xkb_variant.description()),
                         layout: layout.to_owned(),
                         variant: variant.to_owned(),
                     };
